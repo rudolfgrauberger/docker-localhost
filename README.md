@@ -6,7 +6,7 @@ Ich habe für meine Demo folgendes geändert/erweitert:
 - curl installiert
 - Webserver-Port bei Service B von 80 auf 81 geändert
 
-## Einrichtung
+## Docker Images Erstellen
 1. Dieses Repository als Ordner oder über git herunterladen.
 ``` bash
 git clone https://github.com/rudolfgrauberger/docker-localhost.git
@@ -22,14 +22,14 @@ docker build -t test/service-b -f DockerfileServiceB .
 ```
 
 ## Benutzung
-Anschließend kann man mit den nachfolgenden Befehlen die Container starten:
+Anschließend kann man mit den nachfolgenden Befehlen Container aus den lokal erstellten Images **test/service-a** und **test/service-b** starten:
 
 **Service A**
 ``` posh
-docker run --name ServiceA -p 9090:80 --rm -d -i test/service-a
+docker run --name ServiceA -p 9080:80 --rm -d test/service-a
 ```
 
 **Service B**
 ``` posh
-docker run --name ServiceB -p 9091:81 --rm -d -i test/service-b
+docker run --name ServiceB -p 9081:81 --rm -d test/service-b
 ```
